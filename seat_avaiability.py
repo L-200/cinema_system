@@ -12,7 +12,7 @@ for i in range(fileiras):
     cinema.append(fila)
 print('What is the price per reservation?')
 price = float(input())
-print('What will be the number to stop the system?(type it in the "number of reservation" part to end the program)')
+print('What will be the number to stop the system?(type it in the "number of reservations" part to end the program)')
 stop = int(input())
 def print_(x):  #function to print the cinema 
         for i in range(len(x)):
@@ -20,6 +20,7 @@ def print_(x):  #function to print the cinema
 def reservation_process(x):
     tickets_remaining = number_reservations #useful in >1 reservations
     for i in range(x):
+        print('Please choose a row and its location')
         row = (int(input('row: '))-1)
         location = (int(input('location: '))-1)
         if cinema[row][location] == 'X':
@@ -40,7 +41,9 @@ def reservation_process(x):
             else:
                 cinema[row][location] = location+1
                 print("Let's try it again")
-                reservation_process(tickets_remaining)            
+                reservation_process(tickets_remaining)  
+        else:
+            print('Okay, your seat has been reserved')          
 print('Do you want confirmation after each entry?')
 awnser1 = input().lower()
 #room generated    
@@ -57,4 +60,6 @@ while True:
     awnser2 = input().lower()
     if awnser2 == 'yes':    
         reservation_process(number_reservations)
+    print('Time for the next customer!')
+    time.sleep(3)
 print_(cinema)
