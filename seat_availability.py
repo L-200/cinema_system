@@ -19,7 +19,6 @@ def print_(x):  #function to print the cinema
         for i in range(len(x)):
             print((i+1), x[i])
 def reservation_process(x):
-    tickets_remaining = number_reservations #useful in >1 reservations
     for i in range(x):
         print('Please choose a row and its location')
         row = (int(input('row: '))-1)
@@ -28,7 +27,7 @@ def reservation_process(x):
             print('Sorry, but this place is already reserved!')
             print('Please try again')
             print_(cinema)
-            reservation_process(tickets_remaining)
+            reservation_process(x)
             break #needs to break out of this 'for i' loop
         cinema[row][location] = 'X'
         print_(cinema)
@@ -36,14 +35,15 @@ def reservation_process(x):
             print('Are you sure this is the seat you want?')
             awnser3 = input().lower()
             if awnser3 == 'yes':
-                tickets_remaining -= 1
+                x -= 1
                 print('Okay, your seat has been reserved')
                 
             else:
                 cinema[row][location] = location+1
                 print("Let's try it again")
-                reservation_process(tickets_remaining)  
+                reservation_process(x)  
         else:
+            x -= 1
             print('Okay, your seat has been reserved')          
 print('Do you want confirmation after each entry?')
 awnser1 = input().lower()
