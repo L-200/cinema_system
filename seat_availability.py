@@ -4,7 +4,7 @@ print('How many rows are there in the room?')
 fileiras = int(input())
 print('How many seats per row?')
 assentos = int(input())
-seats_aviable = fileiras*assentos
+seats_available = fileiras*assentos
 cinema = []
 for i in range(fileiras):
     fila = []
@@ -55,7 +55,7 @@ while True:
     number_reservations = int(input('Number of reservations: '))
     if number_reservations == stop: #this allows the owner of the system to shut it down 
         break
-    if number_reservations > seats_aviable:
+    if number_reservations > seats_available:
         print("There aren't enough seats for that!")
         time.sleep(3)
     else:
@@ -67,4 +67,3 @@ while True:
             reservation_process(number_reservations)
         print('Time for the next customer!')
         time.sleep(3)
-print_(cinema)
