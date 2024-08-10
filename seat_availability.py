@@ -37,7 +37,6 @@ def reservation_process(x):
             if awnser3 == 'yes':
                 x -= 1
                 print('Okay, your seat has been reserved')
-                
             else:
                 cinema[row][location] = location+1
                 print("Let's try it again")
